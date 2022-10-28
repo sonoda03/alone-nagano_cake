@@ -21,10 +21,11 @@ Rails.application.routes.draw do
   devise_for :admin, skip:[:registrations, :passwords],controllers:{
     sessions: "admin/sessions"
   }
-  
+
   namespace :admin do
     root "homes#home"
     resources :customers, only: [:index,:show,:edit,:update]
+    resources :genres
     resources :items, only: [:new,:create,:index,:show,:edit,:update]
   end
 
