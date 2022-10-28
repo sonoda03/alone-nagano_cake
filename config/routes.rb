@@ -10,8 +10,10 @@ Rails.application.routes.draw do
   root 'public/homes#top'
   get '/about' => 'public/homes#about'
 
-  namespace :public do
 
+  scope module: :public do
+    # 配送先
+    resources :addresses, only: [:index,:create,:edit,:update,:destroy]
   end
 
   # 管理者用
