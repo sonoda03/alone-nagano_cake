@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root "homes#home"
     resources :customers, only: [:index,:show,:edit,:update]
+    resources :genres
   end
 
 
