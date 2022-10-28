@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     root "homes#home"
     resources :customers, only: [:index,:show,:edit,:update]
     resources :genres
+    resources :items, only: [:new,:create,:index,:show,:edit,:update]
   end
 
 
