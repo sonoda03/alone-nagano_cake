@@ -4,8 +4,8 @@
   </h5>
   <div class="row">
     <div class="col-10 offset-2">
-        <!--　　　　　　　　　↓「admin_items_path」を記入しないとitem_pathを参照してしまうので記入　-->
-      <%= form_with model: @item_new, url: admin_items_path,local: true do |form| %>
+        <!--↓「admin_items_path」を記入しないとitem_pathを参照してしまうので記入-->
+      <%= form_with url: admin_items_path, model: @item, local: true do |form| %>
       <table class="ml-4">
         <tr>
           <td>
@@ -38,8 +38,8 @@
           <td>
             <%#= form.collection_select <属性名>, <プルダウンメニュー表示用の配列データ>, <valueとして扱うカラム名>,  <表示用のカラム名>, <オプション> %>
             <!--prompt オプションを使うと、プルダウンメニューが選択されていない時（＝初期値が設定されなかったとき）に「選択して下さい」といった文字列の行が先頭に追加される-->
-            <%#= form.collection_select :genre_id, Genre.all,:id, :name,
-                                                            :prompt => "--選択してください--" %>
+            <%= form.collection_select :genre_id, Genre.all, :id, :name,
+                                       :prompt => "--選択してください--"%>
             </td>
         </tr>
         <tr>
