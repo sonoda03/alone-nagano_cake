@@ -1,0 +1,11 @@
+<h5>商品一覧（全<%= @items.count %>件)</h5>
+
+<% @items.each do |item| %>
+  <%= link_to item_path(item.id) do %>
+  <%= image_tag item.get_item_image, :size => '100x100' %>
+  <% end %>
+  <%= item.name %>
+  <!--(:dalimited)は数値を3桁区切りにする-->
+  <!--model/item.rbにadd_tax_priceのメソッドがある-->
+  <p>￥<%= item.add_tax_price.to_s(:dalimited) %></p>
+<% end %>
