@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
 
   namespace :public do
-    get 'items/index'
-    get 'items/show'
+   
   end
   # 顧客用
   # URL /customers/sign_in ...
@@ -20,6 +19,9 @@ Rails.application.routes.draw do
     resources :items, only: [:index,:show]
     # 配送先
     resources :addresses, only: [:index,:create,:edit,:update,:destroy]
+    # カート
+    resources :cart_items, only: [:index,:create,:update,:destroy]
+    delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
   end
 
   # 管理者用
