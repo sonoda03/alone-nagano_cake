@@ -5,6 +5,7 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :addressses, dependent: :destroy
+  has_many :cart_items, dependent: :destroy
 
   validates :last_name, presence: true , length: { maximum: 8 }
   validates :first_name, presence: true , length: { maximum: 10 }
