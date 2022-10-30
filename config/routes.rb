@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   namespace :public do
-    get 'cart_items/index'
+   
   end
   # 顧客用
   # URL /customers/sign_in ...
@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
 
   scope module: :public do
+    # 商品
+    resources :items, only: [:index,:show]
     # 配送先
     resources :addresses, only: [:index,:create,:edit,:update,:destroy]
     # カート

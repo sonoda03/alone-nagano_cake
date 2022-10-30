@@ -1,0 +1,6 @@
+<h5>商品詳細ページ</h5>
+
+  <%= image_tag @item.get_item_image, :size => '100x100' %>
+  <%= @item.name %>
+  <%= @item.introduction %>
+  <p><%=  @item.unit_price %>円（<%= @item.add_tax_price.to_s(:dalimited) %>円）</p>
