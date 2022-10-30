@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'items/index'
+    get 'items/show'
+  end
   # 顧客用
   # URL /customers/sign_in ...
   devise_for :customers,skip: [:passwords], controllers: {
@@ -12,6 +16,8 @@ Rails.application.routes.draw do
 
 
   scope module: :public do
+    # 商品
+    resources :items, only: [:index,:show]
     # 配送先
     resources :addresses, only: [:index,:create,:edit,:update,:destroy]
   end
